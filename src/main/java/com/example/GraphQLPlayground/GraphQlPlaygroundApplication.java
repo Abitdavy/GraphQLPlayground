@@ -1,9 +1,6 @@
 package com.example.GraphQLPlayground;
 
-import com.example.GraphQLPlayground.model.Author;
-import com.example.GraphQLPlayground.model.AuthorRepository;
-import com.example.GraphQLPlayground.model.Book;
-import com.example.GraphQLPlayground.model.BookRepository;
+import com.example.GraphQLPlayground.model.*;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -18,6 +15,9 @@ public class GraphQlPlaygroundApplication {
 
 	@Autowired
 	private BookRepository bookRepository;
+
+	@Autowired
+	private CustomerRepository customerRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(GraphQlPlaygroundApplication.class, args);
@@ -56,5 +56,10 @@ public class GraphQlPlaygroundApplication {
 		System.out.println(book3);
 
 		bookRepository.saveAll(List.of(book1, book2, book3));
+
+		Customer customer = new Customer();
+		customer.setCustomerName("abet");
+		customer.setCustomerAge("23");
+		customerRepository.save(customer);
 	}
 }

@@ -2,6 +2,7 @@ extend type Query {
     getAllAuthor: [Author]
     getBookById(id: ID!): Book
     getAllBooks: [Book]
+    getAllCustomer: [Customer]
 }
 
 extend type Mutation {
@@ -28,4 +29,10 @@ type Author {
 id: ID!
 name: String!
 books: [Book]!
+}
+
+type Customer {
+    id: ID!
+    customerName: String!
+    customerAge: String!
 }
